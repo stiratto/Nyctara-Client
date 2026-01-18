@@ -113,7 +113,7 @@ const Product = () => {
           <div className="flex flex-col gap-4 mt-8">
             <IsAvailableBadge isAvailable={product.isAvailable} />
 
-            <TypographyH1 className="font-extrabold text-5xl max-w-sm">{product?.product_name}</TypographyH1>
+            <TypographyH1 className="font-light text-5xl max-w-sm">{product?.product_name}</TypographyH1>
             <div className="flex flex-wrap items-center gap-2">
 
               {product?.product_tags.map((tag) => (
@@ -137,7 +137,7 @@ const Product = () => {
               {product?.product_category?.category_name}
             </Badge>
             <div>
-              <h2 className="font-bold flex items-center gap-2">Notas de fragancia<Leaf /></h2>
+              <h2 className="font-bold flex items-center gap-2 border">Notas de fragancia</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  py-2">
                 {product?.product_notes?.map((note: string) => <li key={uuidv4()}>{note}</li>)}
               </ul>

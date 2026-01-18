@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), compression({
       algorithm: 'brotliCompress',
-      ext: '.br', 
-      deleteOriginFile: false, 
+      ext: '.br',
+      deleteOriginFile: false,
     })],
     test: {
       globals: true,

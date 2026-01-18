@@ -49,7 +49,7 @@ const CategoryProducts = () => {
         <p>Filtrando productos...</p>
       </div>
 
-      <TypographyH1>{category?.category_name}</TypographyH1>
+      <TypographyH1 className="font-light">{category?.category_name}</TypographyH1>
 
       <Filtering />
 
