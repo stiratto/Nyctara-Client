@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import categoriesApi from "@/api/categories/categories.api"
 import { useDispatch } from "react-redux"
-import { AppDispatch} from "@/store/store"
+import { AppDispatch } from "@/store/store"
 import { clearFiltering } from "@/store/filtering/FilteringSlice"
 
 export const Filtering = () => {
@@ -48,7 +48,7 @@ export const Filtering = () => {
             className="text-cyan-500 underline hover:cursor-pointer flex items-center gap-1"
             onClick={clearFilter}>
             <RefreshCw size={15} />
-            Limpiar todo
+            Limpiar filtros
          </button>
 
       </div>

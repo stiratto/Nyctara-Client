@@ -15,7 +15,19 @@ const Homepage = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
       <div className="">
-        <picture> <source srcSet="https://nyctara-perfumery-static.s3.us-east-1.amazonaws.com/nyctara%2Bgrande.webp" media="(min-width: 300px)" /> <img src="https://nyctara-perfumery-static.s3.us-east-1.amazonaws.com/nyctara%2Bgrande.webp" alt="landing image" height="100" width="600" loading="lazy" decoding="async" /> </picture>
+        <picture> 
+          <source 
+            srcSet="https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/nyctara-grande.png" 
+            media="(min-width: 300px)" /> 
+          <img src="https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/nyctara-grande.png" 
+            alt="landing image" 
+            height="100" 
+            width="600" 
+            loading="lazy" 
+            decoding="async" 
+            /> 
+
+          </picture>
 
       </div>
 

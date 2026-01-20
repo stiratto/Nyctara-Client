@@ -16,7 +16,7 @@ import { Button } from "../ui/button.tsx";
 import { DeleteProductDialog } from "./DeleteProductDialog.tsx";
 import OtherProducts from "./OtherProducts.tsx";
 import ProductBreadcrumb from "./ProductBreadcrumb";
-import { Leaf, LoaderCircle, Minus, Plus, ShoppingCart } from "lucide-react";
+import { LoaderCircle, Minus, Plus, ShoppingCart } from "lucide-react";
 import { Discount } from "@/interfaces/Discount.interface.ts";
 import clsx from "clsx";
 import { cn } from "@/utils/utils.ts";
@@ -49,12 +49,7 @@ const Product = () => {
   });
 
   useEffect(() => {
-
-    if (product && product.product_images && product.product_images.length > 0) {
-      setCurrentImage(product.product_images[0] as string);
-    } else {
-      setCurrentImage(undefined);
-    }
+    setCurrentImage(product?.product_images?.[0] as string);
   }, [product]);
 
   const images = Array.isArray(product?.product_images)
@@ -110,8 +105,9 @@ const Product = () => {
               <ImageMagnifier src={currentImage as string} />
             </div>
           </div>
+
           <div className="flex flex-col gap-4 mt-8">
-            <IsAvailableBadge isAvailable={product.isAvailable} />
+            <IsAvailableBadge isAvailable={product.isAvailable} className="rotate-30 relative right-0 self-end border-0" />
 
             <TypographyH1 className="font-light text-5xl max-w-sm">{product?.product_name}</TypographyH1>
             <div className="flex flex-wrap items-center gap-2">
@@ -154,7 +150,7 @@ const Product = () => {
 
 
               <Button
-                className="flex gap-2 items-center bg-green-500 w-min text-white rounded-full p-7 uppercase text-sm"
+                className="flex gap-2 items-center bg-[#D3DAAE] w-min text-black rounded-full p-7 uppercase text-sm hover:bg-black/50"
                 type="button"
                 onClick={() => handleAddToCart(product as ProductProps)}
               >

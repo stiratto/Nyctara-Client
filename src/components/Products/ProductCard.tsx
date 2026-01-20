@@ -18,13 +18,21 @@ export const ProductCard = ({
   product_images,
   id,
 }: Product) => {
+  const img = product_images?.[0] as string;
+  const placeholderImg = "https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/perfume-placeholder.png"
+
   return (
     <Link to={`/producto/${id}`} className="flex flex-col p-0! rounded">
 
       <Card className="group relative bg-transparent border-black/20 max-w-xs h-full">
 
         <IsAvailableBadge isAvailable={isAvailable} className="absolute bg-[#ecefdc] rounded-none rounded-br rounded-tl" />
-        <LazyLoadImage src={product_images?.[0] as string} effect={"black-and-white"} className="h-80 rounded-t" />
+
+        <LazyLoadImage
+          placeholderSrc={placeholderImg}
+          src={img}
+          effect={"black-and-white"} className="h-80 rounded-t w-80"
+        />
 
         <CardContent className="flex flex-col gap-2 text-center justify-center items-center w-full">
 

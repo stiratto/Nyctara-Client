@@ -17,12 +17,11 @@ export const Navbar = () => {
         <div className="flex items-center gap-8">
           <Marcas />
         </div>
-        {/* Brands / Categories */}
 
         {/* Nyctara image */}
         <Link to={"/"}>
           <img
-            src="https://nyctara-perfumery-static.s3.us-east-1.amazonaws.com/nyctara%2Bgrande.webp"
+            src="https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/nyctara-grande.png"
             alt=""
             className="w-16 h-16 object-cover"
           />
