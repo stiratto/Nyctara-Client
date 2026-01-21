@@ -1,11 +1,14 @@
 import { cn } from "@/utils/utils";
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export function ImageMagnifier(img: any) {
   // magnifier idea
   // podemos poner la posicion del img zoomeada en el medio delcursor
   const [[x, y], setSize] = useState([0, 0])
   const [isMagnifying, setIsMagnifying] = useState(false)
+
+  const placeholderImg = "https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/perfume-placeholder.png"
 
   const getCursorPosition = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -23,7 +26,7 @@ export function ImageMagnifier(img: any) {
 
     <div className="relative">
       <div className={cn("bg-white/50 w-full h-full absolute pointer-events-none hidden", isMagnifying && "block")}></div>
-      <img src={img.src} className={cn("h-96 w-[500px] h-[500px] object-content")} alt={"imagen del producto"}
+      <LazyLoadImage placeholderSrc={placeholderImg} src={img.src} className={cn("h-96 w-[500px] h-[500px] object-content")} alt={"imagen del producto"}
         onMouseMove={(e) => {
           setIsMagnifying(true)
           getCursorPosition(e)

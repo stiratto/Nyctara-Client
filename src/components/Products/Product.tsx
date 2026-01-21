@@ -23,9 +23,11 @@ import { cn } from "@/utils/utils.ts";
 import { IsAvailableBadge } from "./IsAvailableBadge.tsx";
 import { formatPrice } from "@/utils/utils.ts";
 import { TypographyH1 } from "../Typography/h1.tsx";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Product = () => {
   const { id } = useParams();
+  const placeholderImg = "https://nyctaraperfumes.s3.us-east-2.amazonaws.com/public/perfume-placeholder.png"
 
   const isAuthenticated = useSelector(
     (state: RootState) => state.user.authenticated,
@@ -87,10 +89,11 @@ const Product = () => {
             <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-8">
               <div className="flex  md:flex-col items-center justify-center gap-4">
                 {images?.map((image: { src: string }, index: number) => (
-                  <img
+                  <LazyLoadImage
                     key={uuidv4()}
+                    placeholderSrc={placeholderImg}
                     alt="Imagen del producto"
-                    src={image?.src}
+                    src=""
                     className={clsx(`w-[90px] h-[90px] cursor-pointer border-2 border-transparent object-cover hover:border-gray-500`,
                       // check if current image is the one selected
                       index === currentIndex && "!border-gray-300"
